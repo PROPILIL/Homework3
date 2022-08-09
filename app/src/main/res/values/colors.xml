@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#CA2424</color>
+
+    <color name="activity_background">#C1C1C1</color>
+
+    <!--    MAIN FRAGMENT  -->
+    <color name="to_flags_color">#5BD1D7</color>
+    <color name="to_random_pic_color">#348498</color>
+
+    <!--    ITALY    -->
+    <color name="italy_green">#008C45</color>
+    <color name="italy_red">#CD212A</color>
+    <color name="italy_white">#F4F5F0</color>
+
+    <!--    COLUMBIA    -->
+    <color name="columbia_yellow">#FFCD00</color>
+    <color name="columbia_blue">#003087</color>
+    <color name="columbia_red">#C8102E</color>
+
+    <!--    MADAGASCAR    -->
+    <color name="madagascar_red">#F9423A</color>
+    <color name="madagascar_green">#00843D</color>
+
+    <!--    THAILAND    -->
+    <color name="thailand_red">#EF3340</color>
+    <color name="thailand_blue">#00205B</color>
+
+    <!--    DENMARK    -->
+    <color name="denmark_red">#DA291C</color>
+
+    <!--    SWITZERLAND    -->
+    <color name="switzerland_red">#DA291C</color>
+</resources>

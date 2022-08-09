@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">HomeWork 3</string>
+
+    <!--Main fragment-->
+    <string name="get_picture">get\npicture</string>
+    <string name="get_flags">get\nflags</string>
+    <!--Picture fragment-->
+    <string name="get_random_pic">get some random picture</string>
+    <string name="get_specific_pic">get a specific one</string>
+    <string name="edit_field_hint">TYPE A PICTURE\'S INDEX</string>
+    <string name="edit_field_helper">from 0 to 1000</string>
+    <string name="choose_the_way">choose the way</string>
+    <string name="or">or</string>
+
+</resources>
