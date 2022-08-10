@@ -28,7 +28,7 @@
         android:padding="8dp"
         android:text="@string/get_random_pic"
         android:textColor="@color/white"
-        app:backgroundTint="#004d61" />
+        app:backgroundTint="@color/to_flags_color" />
 
     <ImageView
         android:id="@+id/image"
@@ -78,6 +78,6 @@
         android:padding="8dp"
         android:text="@string/get_specific_pic"
         android:textColor="@color/white"
-        app:backgroundTint="#004d61" />
+        app:backgroundTint="@color/to_flags_color" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

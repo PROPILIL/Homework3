@@ -12,8 +12,8 @@
     <color name="activity_background">#C1C1C1</color>
 
     <!--    MAIN FRAGMENT  -->
-    <color name="to_flags_color">#5BD1D7</color>
-    <color name="to_random_pic_color">#348498</color>
+    <color name="to_flags_color">#348498</color>
+    <color name="to_random_pic_color">#004d61</color>
 
     <!--    ITALY    -->
     <color name="italy_green">#008C45</color>

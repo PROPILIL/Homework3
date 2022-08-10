@@ -3,6 +3,7 @@ package com.propil.homework3.fragments
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ import com.propil.homework3.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.net.URL
 
 class RandomPicFragment : Fragment() {
@@ -24,7 +26,6 @@ class RandomPicFragment : Fragment() {
     private lateinit var imageView: ImageView
 
     private lateinit var inputField: TextInputEditText
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,15 +41,35 @@ class RandomPicFragment : Fragment() {
 
         randomButton.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
-                val bitmap = downloadBitmap(RANDOM_PIC_URL)
+                val bitmap = downloadRandomBitmap(RANDOM_PIC_URL)
+                imageView.post {
+                    imageView.setImageBitmap(bitmap)
+                }
+            }
+        }
+        specificButton.setOnClickListener {
+            CoroutineScope(Dispatchers.IO).launch {
+                val inputNum = inputField.text.toString()
+                val url = "$SPECIFIC_PIC_URL$inputNum/200"
 
-                imageView.post { imageView.setImageBitmap(bitmap) }
+                when (val bitmap = downloadRandomBitmap(url)) {
+                    null -> withContext(Dispatchers.Main) {
+                        Toast.makeText(activity, "$inputNum index not found", Toast.LENGTH_SHORT).show()
+                    }
+                    else -> {
+                        Log.d("TAG", inputNum)
+                        Log.d("TAG", url)
+                        Log.d("TAG", "$bitmap")
+                        imageView.post {
+                            imageView.setImageBitmap(bitmap)
+                        }
+                    }
+                }
+
+
             }
         }
     }
-
-    //TODO: Add function to download images here
-
 
     private fun initViews(view: View) {
         randomButton = view.findViewById(R.id.random_button)
@@ -57,22 +78,22 @@ class RandomPicFragment : Fragment() {
         inputField = view.findViewById(R.id.input_field)
     }
 
-    private fun downloadBitmap(imageUrl: String?) : Bitmap? {
-        return try{
-            val connection = URL(RANDOM_PIC_URL).openConnection()
+    private fun downloadRandomBitmap(imageUrl: String?): Bitmap? {
+        return try {
+            val connection = URL(imageUrl).openConnection()
             connection.connect()
             val inputStream = connection.getInputStream()
             val bitmap = BitmapFactory.decodeStream(inputStream)
             inputStream.close()
             bitmap
-        } catch(e:Exception) {
-            Toast.makeText(activity, "Something went wrong", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
             null
         }
     }
 
     companion object {
         private const val RANDOM_PIC_URL = "https://picsum.photos/200"
+        private const val SPECIFIC_PIC_URL = "https://picsum.photos/id/"
 
         fun newInstance(): RandomPicFragment {
             return RandomPicFragment()
